@@ -1,0 +1,4 @@
+﻿.quarto/
+.Rproj.user/
+.vscode/
+*.log
