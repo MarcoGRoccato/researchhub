@@ -1,4 +1,6 @@
-﻿.quarto/
+.quarto/
 .Rproj.user/
 .vscode/
 *.log
+
+/.quarto/

@@ -1,0 +1,18 @@
+﻿project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "ResearchHub"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: projects.qmd
+        text: Projects
+
+format:
+  html:
+    theme: cosmo
+    toc: false
+    css: styles.css
