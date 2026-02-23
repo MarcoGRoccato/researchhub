@@ -1,6 +1,224 @@
+# =========================
+# ResearchHub - strict ignore
+# =========================
+
+# --- OS / editor ---
+.DS_Store
+Thumbs.db
+desktop.ini
+
+.vscode/
+.idea/
+
+# --- Quarto / RStudio / notebooks caches ---
 .quarto/
 .Rproj.user/
-.vscode/
+.ipynb_checkpoints/
+
+# --- Python caches / envs ---
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+env/
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+
+# --- R / package / build caches ---
+.Rhistory
+.RData
+.Ruserdata
+.Rproj.user/
+renv/library/
+renv/python/
+packrat/lib/
+
+# --- Logs / temp ---
 *.log
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+*~
+
+# --- Secrets / env files ---
+.env
+.env.*
+*.key
+*.pem
+*.p12
+*.secrets
+secrets/
+credentials/
+tokens/
+auth/private*
+auth/*.secret*
+auth/*.key
+
+# =========================================
+# DATA SAFETY (STRICT)
+# Intentionally ignore common research data directories
+# anywhere in the repo tree
+# =========================================
+data/
+raw_data/
+processed_data/
+outputs/
+output/
+temp/
+tmp/
+cache/
+caches/
+artifacts/
+archive/
+archives/
+exports/
+export/
+
+# Common alternative names used in labs/projects
+input_data/
+derived_data/
+intermediate/
+results/
+figures_raw/
+analysis_data/
+
+# =========================================
+# DATA FILES (STRICT)
+# If you later need to version a specific small file,
+# un-ignore it explicitly with a leading "!" rule.
+# =========================================
+
+# Tabular / spreadsheets / databases
+*.csv
+*.tsv
+*.tab
+*.txt
+*.xlsx
+*.xls
+*.xlsm
+*.ods
+*.sqlite
+*.sqlite3
+*.db
+*.mdb
+*.accdb
+
+# Statistics / analysis formats
+*.sav
+*.zsav
+*.por
+*.dta
+*.sas7bdat
+*.xpt
+*.rds
+*.rda
+*.RData
+*.rdata
+*.feather
+*.parquet
+*.arrow
+*.fst
+*.pkl
+*.pickle
+*.joblib
+*.npy
+*.npz
+*.mat
+*.h5
+*.hdf5
+
+# EEG / neuroscience / biosignal formats (common)
+*.edf
+*.bdf
+*.gdf
+*.fif
+*.set
+*.fdt
+*.vhdr
+*.vmrk
+*.eeg
+*.cnt
+*.xdf
+*.mff
+*.egi
+*.acq
+
+# Images/videos often used as stimuli or raw data
+# (Quarto-rendered assets in docs/ are re-allowed below)
+*.png
+*.jpg
+*.jpeg
+*.tif
+*.tiff
+*.bmp
+*.gif
+*.webp
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.wav
+*.mp3
+*.flac
+
+# Archives / compressed data drops
+*.zip
+*.7z
+*.rar
+*.tar
+*.gz
+*.bz2
+*.xz
+*.tgz
+
+# =========================================
+# KEEP WEBSITE OUTPUTS NEEDED FOR PUBLISHING
+# (GitHub Pages publishes from /docs)
+# =========================================
+
+# Re-allow docs tree generally
+!docs/
+!docs/**
+
+# Re-allow common website assets under docs after global image/media ignores
+!docs/**/*.png
+!docs/**/*.jpg
+!docs/**/*.jpeg
+!docs/**/*.gif
+!docs/**/*.webp
+!docs/**/*.svg
+!docs/**/*.css
+!docs/**/*.js
+!docs/**/*.json
+!docs/**/*.html
+!docs/**/*.xml
+!docs/**/*.ico
+!docs/**/*.map
+
+# Keep Quarto-generated libs/site files under docs
+!docs/site_libs/
+!docs/site_libs/**
+
+# =========================================
+# ALLOW SOURCE FILES (even if extension rules above are strict)
+# =========================================
+!README.md
+!*.qmd
+!*.md
+!*.yml
+!*.yaml
+!*.json
+!*.css
+!*.js
+!*.html
+!*.svg
+
+# If you later need tracked non-sensitive tabular metadata, add explicit allows, e.g.:
+# !metadata/*.csv
+# !docs/search.json
 
 /.quarto/

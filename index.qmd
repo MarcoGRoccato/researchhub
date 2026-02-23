@@ -2,8 +2,6 @@
 title: "ResearchHub"
 ---
 
-# ResearchHub
-
 Fresh start.
 
 This site is now generated from **Quarto source files** (not manual edits in docs/).
