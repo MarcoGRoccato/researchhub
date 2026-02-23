@@ -130,8 +130,91 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Fresh start.</p>
-<p>This site is now generated from <strong>Quarto source files</strong> (not manual edits in docs/).</p>
+<div id="rh-gate-overlay" style="position:fixed;inset:0;background:rgba(0,0,0,.82);z-index:99999;display:flex;align-items:center;justify-content:center;padding:1rem;">
+<div style="width:min(520px,95vw);background:#111827;color:#f9fafb;border:1px solid #374151;border-radius:14px;padding:1rem 1rem 1.1rem 1rem;box-shadow:0 12px 30px rgba(0,0,0,.45);font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;">
+<h2 style="margin:0 0 .4rem 0;font-size:1.2rem;" class="anchored">
+Private Access
+</h2>
+<p style="margin:0 0 .75rem 0;line-height:1.4;color:#d1d5db;">
+Enter password to view this page.
+</p>
+<p><label for="rh-gate-password" style="display:block;margin:.25rem 0 .35rem 0;font-size:.9rem;color:#d1d5db;">Password</label> <input id="rh-gate-password" type="password" autocomplete="current-password" style="width:100%;padding:.7rem .75rem;border-radius:10px;border:1px solid #4b5563;background:#0b1220;color:#fff;outline:none;"></p>
+<div style="display:flex;gap:.6rem;align-items:center;margin-top:.75rem;">
+<button id="rh-gate-submit" type="button" style="padding:.65rem .9rem;border-radius:10px;border:1px solid #4b5563;background:#2563eb;color:white;cursor:pointer;">
+Unlock
+</button>
+<p><span id="rh-gate-msg" style="font-size:.9rem;color:#fca5a5;"></span></p>
+</div>
+<p style="margin:.8rem 0 0 0;font-size:.78rem;color:#9ca3af;">
+</p>
+</div>
+</div>
+<script>
+(function () {
+  var GATE_PASSWORD = "vision";
+  var STORAGE_KEY = "researchhub_gate_ok_v1";
+
+  var overlay = document.getElementById("rh-gate-overlay");
+  var input = document.getElementById("rh-gate-password");
+  var btn = document.getElementById("rh-gate-submit");
+  var msg = document.getElementById("rh-gate-msg");
+
+  function unlock() {
+    try { localStorage.setItem(STORAGE_KEY, "1"); } catch (e) {}
+    if (overlay) overlay.remove();
+    document.documentElement.style.overflow = "";
+    document.body.style.overflow = "";
+  }
+
+  function deny() {
+    if (msg) msg.textContent = "Wrong password";
+    if (input) {
+      input.value = "";
+      input.focus();
+    }
+  }
+
+  function checkStored() {
+    try {
+      return localStorage.getItem(STORAGE_KEY) === "1";
+    } catch (e) {
+      return false;
+    }
+  }
+
+  if (checkStored()) {
+    unlock();
+    return;
+  }
+
+  document.documentElement.style.overflow = "hidden";
+  document.body.style.overflow = "hidden";
+
+  if (input) {
+    setTimeout(function () { input.focus(); }, 50);
+    input.addEventListener("keydown", function (e) {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        if (input.value === GATE_PASSWORD) {
+          unlock();
+        } else {
+          deny();
+        }
+      }
+    });
+  }
+
+  if (btn) {
+    btn.addEventListener("click", function () {
+      if (input && input.value === GATE_PASSWORD) {
+        unlock();
+      } else {
+        deny();
+      }
+    });
+  }
+})();
+</script>
 
 
 
