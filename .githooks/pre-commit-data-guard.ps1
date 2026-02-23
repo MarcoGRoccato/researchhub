@@ -20,7 +20,7 @@ if (-not $StagedFiles) {
 
 # Patterns (case-insensitive)
 $BlockedDirRegex = '(^|/)(data|raw_data|processed_data|outputs|output|temp|tmp|cache|caches|results|analysis_data|input_data|derived_data|intermediate|exports?|archives?)($|/)'
-$BlockedExtRegex = '\.(csv|tsv|tab|txt|xlsx|xls|xlsm|ods|sqlite|sqlite3|db|mdb|accdb|sav|zsav|por|dta|sas7bdat|xpt|rds|rda|rdata|feather|parquet|arrow|fst|pkl|pickle|joblib|npy|npz|mat|h5|hdf5|edf|bdf|gdf|fif|set|fdt|vhdr|vmrk|eeg|cnt|xdf|mff|egi|acq|zip|7z|rar|tar|gz|bz2|xz|tgz|env|pem|p12|key)$'
+$BlockedExtRegex = '\.(csv|tsv|tab|txt|xlsx|xls|xlsm|xlsb|xltx|xltm|xlam|ods|sqlite|sqlite3|db|mdb|accdb|sav|zsav|por|dta|sas7bdat|xpt|rds|rda|rdata|feather|parquet|arrow|fst|pkl|pickle|joblib|npy|npz|mat|h5|hdf5|edf|bdf|gdf|fif|set|fdt|vhdr|vmrk|eeg|cnt|xdf|mff|egi|acq|zip|7z|rar|tar|gz|bz2|xz|tgz|env|pem|p12|key)$'
 
 $Violations = New-Object System.Collections.Generic.List[string]
 
@@ -77,3 +77,4 @@ if ($Violations.Count -gt 0) {
 }
 
 exit 0
+

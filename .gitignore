@@ -1,4 +1,4 @@
-# =========================
+﻿# =========================
 # ResearchHub - strict ignore
 # =========================
 
@@ -100,6 +100,10 @@ analysis_data/
 *.xlsx
 *.xls
 *.xlsm
+*.xlsb
+*.xltx
+*.xltm
+*.xlam
 *.ods
 *.sqlite
 *.sqlite3
@@ -222,3 +226,4 @@ analysis_data/
 # !docs/search.json
 
 /.quarto/
+
